@@ -1,0 +1,39 @@
+body{
+  margin: 0;
+  background: #fbfbfa;
+} 
+h1{
+  text-align: center;
+  font-size: 40px;
+}
+h2{
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+#main{
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.black-bg{
+  background-color: black;
+}
+.blue-bg{
+  background-color: blue;
+}
+
+.position-left{
+  float: left;
+  width: 40%;
+  margin-left: 30%;
+}
+.position-right{
+  float: right;
+  width: 30%;
+}
+
+.log_screen{
+  overflow: auto
+}
