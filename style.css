@@ -1,15 +1,19 @@
 body{
   margin: 0;
+  padding: 0;
   background: #fbfbfa;
 } 
 h1{
   text-align: center;
   font-size: 40px;
+  margin: 0;
+  padding: 0;
 }
 h2{
   color: white;
   font-size: 30px;
   text-align: center;
+  width: 100%;
 }
 #main{
   width: 80%;
@@ -33,7 +37,36 @@ h2{
   float: right;
   width: 30%;
 }
+.main_screen{
+  height: 100%;
+}
+h2{
+  height: 10%;
+  margin: 0 auto;
+}
 
+.img_box{
+  width: 80%;
+  height: 60%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+img{
+  width: 100%;
+  margin: 0 auto;
+}
+.main_screen p{
+  color: white;
+  text-align: center;
+}
+form{
+  text-align: center;
+}
 .log_screen{
-  overflow: auto
+  height: 100%;
+  overflow: auto;
+}
+.log_screen p{
+  color: black;
+  text-align: center;
 }

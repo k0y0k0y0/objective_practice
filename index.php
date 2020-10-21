@@ -40,10 +40,10 @@ abstract class Creature{
     return $this->name;
   }
   public function setHp($num){
-    $this->Hp = $num;
+    $this->hp = $num;
   }
   public function getHp(){
-    return $this->Hp;
+    return $this->hp;
   }
 
   public function attack($targetObj){
@@ -122,9 +122,9 @@ class Enemy extends Creature{
 //スーパー敵クラス
 class SuperEnemy extends Enemy{
   //プロパティ
-  protected $superAttack;
+  private $superAttack;
   //コンストラクタ
-  public function __construct($name, $hp, $img, $attackMin, $attackMax, $superAttack){
+  function __construct($name, $hp, $img, $attackMin, $attackMax, $superAttack){
     parent::__construct($name, $hp, $img, $attackMin, $attackMax);
     $this->superAttack = $superAttack;
   }
@@ -167,8 +167,8 @@ class History implements HistoryInterface{
 }
 
 //インスタンス作成
-$ally = new Ally('勇者見習い', Gender::UNKNOWN, 500, 40, 120);
-$enemies[] = new Enemy( 'フランケン', 100, 'img/monster01.png', 20, 40 );
+$ally = new Ally('ポ○モ○', Gender::UNKNOWN, 500, 40, 120);
+$enemies[] = new Enemy( '', 100, 'img/monster01.png', 20, 40 );
 $enemies[] = new SuperEnemy( 'フランケンNEO', 300, 'img/monster02.png', 20, 60, mt_rand(50, 100) );
 $enemies[] = new Enemy( 'ドラキュリー', 200, 'img/monster03.png', 30, 50 );
 $enemies[] = new SuperEnemy( 'ドラキュラ男爵', 400, 'img/monster04.png', 50, 80, mt_rand(60, 120) );
@@ -252,35 +252,35 @@ if(!empty($_POST)){
 </head>
 <body>
   <!-- TITLE -->
-  <h1>ポケッ○モ○スター！</h1>
+  <h1 id="title">ポケッ○モ○スター！</h1>
   <!-- MAIN -->
   <div id="main">
     <div class="black-bg position-left main_screen">
       <?php if(empty($_SESSION)){ ?>
         <h2>GAME START?</h2>
         <form method="post">
-          <input type="text" name="start" value="▶ゲームスタート">
+          <input type="submit" name="start" value="▶ゲームスタート">
         </form>
       <?php }else{ ?>
         <h2><?php echo $_SESSION['enemy']->getName().'が現れた！'; ?></h2>
-        <div>
+        <div class="img_box">
           <img src="<?php echo $_SESSION['enemy']->getImg(); ?>">
         </div>
-        <p>モンスターのHP：<?php echo $_SESSION['enemy']->getHp(); ?></p>
-        <p>倒したモンスター数：<?php echo $_SESSION['knockDownCount']; ?></p>
-        <p>勇者のHP：<?php echo $_SESSION['ally']->getHp(); ?></p>
+        <p>敵のHP：<?php echo $_SESSION['enemy']->getHp(); ?></p>
+        <p>倒した敵の数：<?php echo $_SESSION['knockDownCount']; ?></p>
+        <p>味方のHP：<?php echo $_SESSION['ally']->getHp(); ?></p>
         <form method="post">
-          <input type="submin" name="attack" value="▶攻撃する">
-          <input type="submin" name="escape" value="▶逃げる">
-          <input type="submin" name="start" value="▶リスタート">
+          <input type="submit" name="attack" value="▶攻撃する">
+          <input type="submit" name="escape" value="▶逃げる">
+          <input type="submit" name="start" value="▶リスタート">
         </form>
-      <?PHP } ?>
+      <?php } ?>
     </div>
     <!-- GAME LOG -->
-    <div class="blue-bg position-right log_screen">
-        <p><?php echo (!empty($_SESSION['history']))? $_SESSION['history']: '' ?></p>
+    <div class="position-right log_screen">
+        <p><?php echo (!empty($_SESSION['history']))? $_SESSION['history']: '';?></p>
     </div>
   </div>
-  
+  <script src="./main.js"></script>
 </body>
 </html>
