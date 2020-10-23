@@ -167,15 +167,15 @@ class History implements HistoryInterface{
 }
 
 //インスタンス作成
-$ally = new Ally('ポ○モ○', Gender::UNKNOWN, 500, 40, 120);
-$enemies[] = new Enemy( '', 100, 'img/monster01.png', 20, 40 );
-$enemies[] = new SuperEnemy( 'フランケンNEO', 300, 'img/monster02.png', 20, 60, mt_rand(50, 100) );
-$enemies[] = new Enemy( 'ドラキュリー', 200, 'img/monster03.png', 30, 50 );
-$enemies[] = new SuperEnemy( 'ドラキュラ男爵', 400, 'img/monster04.png', 50, 80, mt_rand(60, 120) );
-$enemies[] = new Enemy( 'スカルフェイス', 150, 'img/monster05.png', 30, 60 );
-$enemies[] = new Enemy( '毒ハンド', 100, 'img/monster06.png', 10, 30 );
-$enemies[] = new Enemy( '泥ハンド', 120, 'img/monster07.png', 20, 30 );
-$enemies[] = new Enemy( '血のハンド', 180, 'img/monster08.png', 30, 50 );
+$ally = new Ally('ピカ○ュー', Gender::UNKNOWN, 500, 40, 120);
+$enemies[] = new Enemy( 'ゴジラ第１形態', 100, 'img/monster01.jpg', 20, 40 );
+$enemies[] = new SuperEnemy( 'ゴジラ第２形態', 300, 'img/monster02.jpg', 20, 60, mt_rand(50, 100) );
+$enemies[] = new Enemy( '鬼', 200, 'img/monster03.jpg', 30, 50 );
+$enemies[] = new SuperEnemy( '鬼○辻無○', 400, 'img/monster04.jpg', 50, 80, mt_rand(60, 120) );
+$enemies[] = new Enemy( 'バイキン○○', 150, 'img/monster05.png', 30, 60 );
+$enemies[] = new Enemy( 'ドキン○○', 100, 'img/monster06.jpeg', 10, 30 );
+$enemies[] = new Enemy( 'フ○ーザ', 120, 'img/monster07.jpg', 20, 30 );
+$enemies[] = new Enemy( 'ク○コ○イル', 180, 'img/monster08.jpg', 30, 50 );
 
 
 //メソッド
@@ -277,7 +277,7 @@ if(!empty($_POST)){
       <?php } ?>
     </div>
     <!-- GAME LOG -->
-    <div class="position-right log_screen">
+    <div class="position-right log_screen" id="game_log">
         <p><?php echo (!empty($_SESSION['history']))? $_SESSION['history']: '';?></p>
     </div>
   </div>
